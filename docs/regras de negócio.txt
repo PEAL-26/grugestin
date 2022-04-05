@@ -1,0 +1,12 @@
+Gestão de Stock
+    -Entrada 
+    -Saída
+
+Requisição
+
+Gestão de Funcionário
+
+Controle de Presença
+
+Relatórios
+    -Nota de Entrega

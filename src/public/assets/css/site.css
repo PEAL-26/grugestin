@@ -1,0 +1,16 @@
+/* .grupo-botoes-add {
+    display: flex;
+    justify-content: space-evenly !important;
+} */
+
+.btn-add {
+    height: 80px !important;
+    width: 80px !important;
+    word-break: break-word;
+    margin: 5px 5px 5px 5px; 
+}
+
+.botao-tabela{
+    text-align: center !important;
+    width: 150px !important;
+}
