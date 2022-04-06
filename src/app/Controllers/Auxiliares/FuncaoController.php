@@ -19,7 +19,7 @@ class FuncaoController extends BaseController
 		];
 
 		$tiposFuncoes = new TipoFuncaoModel();
-		parent::__construct(
+		parent::inicializar(
 			"Função",
 			new Funcao(),
 			new FuncaoModel(),

@@ -17,7 +17,7 @@ class ProvinciaController extends BaseController
 			]
 		];
 
-		parent::__construct(
+		parent::inicializar(
 			"Província",
 			new Provincia(),
 			new ProvinciaModel(),

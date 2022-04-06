@@ -10,13 +10,13 @@ class Install extends Migration
 {
     public function up()
     {
-        $sql =  file_get_contents(APPPATH . '/Database/Migrations/db.sql');
-        $sqls = explode(';', $sql);
-        array_pop($sqls);
-        foreach ($sqls as $statement) {
-            $statment = $statement . ";";
-            $this->db->query($statement);
-        }
+        // $sql =  file_get_contents(APPPATH . '/Database/Migrations/db.sql');
+        // $sqls = explode(';', $sql);
+        // array_pop($sqls);
+        // foreach ($sqls as $statement) {
+        //     $statment = $statement . ";";
+        //     $this->db->query($statement);
+        // }
     }
 
     public function down()

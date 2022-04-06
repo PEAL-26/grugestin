@@ -17,7 +17,7 @@ class EstadoCivilController extends BaseController
 			]
 		];
 
-		parent::__construct(
+		parent::inicializar(
 			"Estado Civil",
 			new EstadoCivil(),
 			new EstadoCivilModel(),

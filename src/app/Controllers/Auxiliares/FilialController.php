@@ -17,7 +17,7 @@ class FilialController extends BaseController
 			]
 		];
 
-		parent::__construct(
+		parent::inicializar(
 			"Filial",
 			new Filial(),
 			new FilialModel(),

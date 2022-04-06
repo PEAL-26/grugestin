@@ -17,7 +17,7 @@ class EstadoOperacaoController extends BaseController
 			]
 		];
 
-		parent::__construct(
+		parent::inicializar(
 			"Estado da Operação",
 			new EstadoOperacao(),
 			new EstadoOperacaoModel(),

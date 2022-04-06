@@ -38,5 +38,4 @@
     <?= $this->include('_include/foot'); ?>
     <?= $this->renderSection('script'); ?>
 </body>
-
 </html>

@@ -20,7 +20,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL ='http://localhost/grugestin/src/public/';
+    public $baseURL = 'http://localhost/grugestin/src/public/';
 
     /**
      * --------------------------------------------------------------------------
@@ -66,7 +66,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $defaultLocale = 'en';
+    public $defaultLocale = 'pt-BR';
 
     /**
      * --------------------------------------------------------------------------

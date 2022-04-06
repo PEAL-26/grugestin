@@ -18,7 +18,7 @@ class NaturalidadeController extends BaseController
 			]
 		];
 
-		parent::__construct(
+		parent::inicializar(
 			"Naturalidade",
 			new Naturalidade(),
 			new NaturalidadeModel(),

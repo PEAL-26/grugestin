@@ -17,7 +17,7 @@ class TipoFuncaoController extends BaseController
 			]
 		];
 
-		parent::__construct(
+		parent::inicializar(
 			"Tipo de Função",
 			new TipoFuncao(),
 			new TipoFuncaoModel(),

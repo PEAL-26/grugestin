@@ -17,7 +17,7 @@ class TipoDocumentoController extends BaseController
 			]
 		];
 
-		parent::__construct(
+		parent::inicializar(
 			"Tipo de Documento",
 			new TipoDocumento(),
 			new TipoDocumentoModel(),

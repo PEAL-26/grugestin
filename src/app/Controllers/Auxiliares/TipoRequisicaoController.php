@@ -17,7 +17,7 @@ class TipoRequisicaoController extends BaseController
 			]
 		];
 
-		parent::__construct(
+		parent::inicializar(
 			"Tipo de Requisição",
 			new TipoRequisicao(),
 			new TipoRequisicaoModel(),

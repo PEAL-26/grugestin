@@ -17,7 +17,7 @@ class TipoOperacaoController extends BaseController
 			]
 		];
 
-		parent::__construct(
+		parent::inicializar(
 			"Tipo de Operação",
 			new TipoOperacao(),
 			new TipoOperacaoModel(),

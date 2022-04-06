@@ -17,7 +17,7 @@ class EstadoRequisicaoController extends BaseController
 			]
 		];
 
-		parent::__construct(
+		parent::inicializar(
 			"Estado da Requisição",
 			new EstadoRequisicao(),
 			new EstadoRequisicaoModel(),

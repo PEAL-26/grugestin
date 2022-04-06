@@ -17,7 +17,7 @@ class EstadoFuncionarioController extends BaseController
 			]
 		];
 
-		parent::__construct(
+		parent::inicializar(
 			"Estado do Funcionário",
 			new EstadoFuncionario(),
 			new EstadoFuncionarioModel(),

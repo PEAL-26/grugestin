@@ -19,7 +19,12 @@ class BaseController extends Controller
 		parent::initController($request, $response, $logger);
 	}
 
-	public function __construct(
+	public function __construct()
+	{
+		//$this->request = \Config\Services::request();
+	}
+
+	public function inicializar(
 		$titulo,
 		$entidade,
 		$model,

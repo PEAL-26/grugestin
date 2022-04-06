@@ -2,9 +2,11 @@
 
 namespace App\Controllers;
 
+use App\Generics\BaseController;
+
 class HomeController extends BaseController
 {
-    public function Index()
+    public function index($countPeger = 0, $outrosParametros = [])
     {
         $dados = [
             'titulo' => 'Home',
