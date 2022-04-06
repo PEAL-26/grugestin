@@ -12,8 +12,9 @@ class Rotas
         $_path = $pathController ?  $pathController . '\\' : '';
 
         // $routes = Services::routes();
-        
+
         $routes->get($url,  $_path . $controller . '::index');
+        $routes->get($url . '/([a-zA-Z]+)',  $_path . $controller . '::pesquisar/$1');
         $routes->get($url . '/novo',  $_path . $controller . '::getCreate');
         $routes->post($url . '/novo',  $_path . $controller . '::postCreate');
         $routes->get($url . '/alterar/(:num)',  $_path . $controller .  '::getEdit/$1');

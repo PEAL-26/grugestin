@@ -19,6 +19,9 @@
                     <?= $subTitulo ?? ''; ?>
                     &nbsp;
                     <a class="btn btn-sm btn-primary" href="<?= base_url($urlNovo); ?>"><i class="fas fa-plus"></i></a>
+                    <?php if (isset($pesquisar)) : ?>
+                        <a href="<?= base_url($url); ?>">Limpar Pesquisa</a>
+                    <?php endif; ?>
                 </h3>
             </div>
             <div class="card-body">

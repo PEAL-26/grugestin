@@ -14,6 +14,8 @@
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                        <!-- Dashboard -->
                         <li class="nav-item">
                             <a href="<?= base_url('/'); ?>" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -21,9 +23,81 @@
                             </a>
                         </li>
 
+                        <!-- Requisição -->
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-stream"></i>
+                                <i class="nav-icon fas fa-hand-holding"></i>
+                                <p>
+                                    Requisições
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= base_url('funcionarios'); ?>" class="nav-link">
+                                        <i class="far nav-icon"></i>Listagem
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('funcionarios/controle-presenca'); ?>" class="nav-link">
+                                        <i class="far nav-icon"></i>Controle de Presença
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Controle de Stock -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-boxes"></i>
+                                <p>
+                                    Controle de Stock
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= base_url('funcionarios'); ?>" class="nav-link">
+                                        <i class="far nav-icon"></i>Listagem
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('funcionarios/controle-presenca'); ?>" class="nav-link">
+                                        <i class="far nav-icon"></i>Controle de Presença
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Produtos -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-archive"></i>
+                                <p>
+                                    Produtos
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= base_url('funcionarios'); ?>" class="nav-link">
+                                        <i class="far nav-icon"></i>Listagem
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('funcionarios/controle-presenca'); ?>" class="nav-link">
+                                        <i class="far nav-icon"></i>Controle de Presença
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Funcionários -->
+                        <?php //if ($admin ?? false) : 
+                        ?>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-user-tie"></i>
                                 <p>
                                     Funcionários
                                     <i class="fas fa-angle-left right"></i>
@@ -42,59 +116,12 @@
                                 </li>
                             </ul>
                         </li>
+                        <?php //endif; 
+                        ?>
 
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-folder-plus"></i>
-                                <p>
-                                    Cadastros
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('agencias'); ?>">
-                                        <i class="far nav-icon"></i>Agencias
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('cartorio-registros'); ?>">
-                                        <i class="far nav-icon"></i>Cartório de Registros
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('codigo-ccas'); ?>">
-                                        <i class="far nav-icon"></i>Código CCAs
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('empreendimentos'); ?>">
-                                        <i class="far nav-icon"></i>Empreendimentos
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('parceiros'); ?>">
-                                        <i class="far nav-icon"></i>Parceiros
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('proponentes'); ?>">
-                                        <i class="far nav-icon"></i>Proponentes
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('vendedores'); ?>">
-                                        <i class="far nav-icon"></i>Vendedores
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?= base_url('documentos'); ?>">
-                                        <i class="far nav-icon"></i>Documentos
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
+                        <!-- Usuarios -->
+                        <?php //if ($admin ?? false) : 
+                        ?>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon  fas fa-users"></i>
@@ -116,13 +143,17 @@
                                 </li>
                             </ul>
                         </li>
+                        <?php // endif; 
+                        ?>
 
-
+                        <!-- Definições -->
+                        <?php //if ($admin ?? false) : 
+                        ?>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-folder-plus"></i>
+                                <i class="nav-icon fas fa-cog"></i>
                                 <p>
-                                    Definições
+                                    Predefinições
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
@@ -184,6 +215,8 @@
                                 </li>
                             </ul>
                         </li>
+                        <?php // endif; 
+                        ?>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

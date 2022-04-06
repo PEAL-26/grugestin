@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<?= $this->include('_include/head'); ?>
+<?= $this->include('_include/_head'); ?>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
-        <?= $this->include('_include/header'); ?>
-        <?= $this->include('_include/menu'); ?>
+        <?= $this->include('_include/_nav_header'); ?>
+        <?= $this->include('_include/_menu'); ?>
 
         <div class="content-wrapper">
             <section class="content-header">
@@ -35,7 +35,7 @@
         </footer>
     </div>
 
-    <?= $this->include('_include/foot'); ?>
+    <?= $this->include('_include/_foot'); ?>
     <?= $this->renderSection('script'); ?>
 </body>
 </html>

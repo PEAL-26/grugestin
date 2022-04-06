@@ -78,6 +78,14 @@ class BaseModel extends Model
 		//     ->select('c.*, e.titulo')
 		// $this->db->table($this->table);
 
-		return $this;
+		return $this->findAll();
+	}
+
+	public function pesquisar($pesquisar){
+		return $this->db->table($this->table)
+			->like('nome ', "%{$pesquisar}%")
+			->get()
+			->getResult();
+		//return $this->findAll();
 	}
 }

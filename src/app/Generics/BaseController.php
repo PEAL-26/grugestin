@@ -9,6 +9,8 @@ use CodeIgniter\HTTP\ResponseInterface;
 use Exception;
 use Psr\Log\LoggerInterface;
 
+use function PHPUnit\Framework\isNull;
+
 class BaseController extends Controller
 {
 	protected $request;
@@ -37,6 +39,7 @@ class BaseController extends Controller
 		$this->model = $model;
 		$this->view = $pathView;
 		$this->titulo = $titulo;
+		$this->outrosParametros = $outrosParametros;
 
 		$this->list = [
 			"titulo" => $titulo,
@@ -49,7 +52,6 @@ class BaseController extends Controller
 			"paginacao" => null,
 			"view" => $this->view . '/index',
 		];
-		$this->list = $this->addOutrosParametros($this->list, $outrosParametros);
 
 		$this->create = [
 			"titulo" => $titulo,
@@ -60,7 +62,6 @@ class BaseController extends Controller
 			"validacao" => null,
 			"view" => $this->view . '/cadastro',
 		];
-		$this->create = $this->addOutrosParametros($this->create, $outrosParametros);
 
 		$this->edit = [
 			"titulo" => $titulo,
@@ -72,7 +73,6 @@ class BaseController extends Controller
 			"view" => $this->view . '/cadastro',
 			$outrosParametros
 		];
-		$this->edit = $this->addOutrosParametros($this->edit, $outrosParametros);
 
 		$this->details = [
 			"titulo" => $titulo,
@@ -83,27 +83,33 @@ class BaseController extends Controller
 			"view" => $this->view . '/detalhes',
 			$outrosParametros
 		];
-		$this->details = $this->addOutrosParametros($this->details, $outrosParametros);
 	}
 
 	/**
 	 * @param int countPager Número de registro por página
 	 * @param array $outrosParametros Outros parâmetros que serão passados para a view ex.: [chave1 => valor1, chave2 => valor2]
 	 */
-	public function index($countPager = 5, $outrosParametros = [])
+	public function index($countPager = 5, $outrosParametros = null)
 	{
-		$this->list = $this->addOutrosParametros($this->list, $outrosParametros);
+		$this->list = $this->addOutrosParametros($this->list, $outrosParametros ?? $this->outrosParametros);
 
-		$this->list["listagem"] = $this->model->listarTodos()->paginate($countPager);
-		$this->list["paginacao"] = $this->model->pager;
-		$this->list[] = $this->model->pager;
+		$filtro = $this->request->getGet('pesquisar');
+		if (is_null($filtro) || empty($filtro)) {
+			$this->list["listagem"] = $this->model->listarTodos(); //->paginate($countPager);
+			$filtro = null;
+		} else {
+			$this->list["pesquisar"] = true;
+			$this->list["listagem"] = $this->model->pesquisar($filtro); //->paginate($countPager);
+		}
+
+		//$this->list["paginacao"] = $this->model->pager;
 
 		return view($this->list["view"], $this->list);
 	}
 
-	public function getDetails($id, $outrosParametros = [])
+	public function getDetails($id, $outrosParametros = null)
 	{
-		$this->details = $this->addOutrosParametros($this->details, $outrosParametros);
+		$this->details = $this->addOutrosParametros($this->details, $outrosParametros ?? $this->outrosParametros);
 		$found = $this->model->find($id);
 
 		if (!$found)
@@ -114,15 +120,15 @@ class BaseController extends Controller
 		return view($this->details["view"], $this->details);
 	}
 
-	public function getCreate($outrosParametros = [])
+	public function getCreate($outrosParametros = null)
 	{
-		$this->create = $this->addOutrosParametros($this->create, $outrosParametros);
+		$this->create = $this->addOutrosParametros($this->create, $outrosParametros ?? $this->outrosParametros);
 		return view($this->create["view"], $this->create);
 	}
 
-	public function postCreate($outrosParametros = [])
+	public function postCreate($outrosParametros = null)
 	{
-		$this->create = $this->addOutrosParametros($this->create, $outrosParametros);
+		$this->create = $this->addOutrosParametros($this->create, $outrosParametros ?? $this->outrosParametros);
 
 		$dataPost = $this->request->getPost();
 		$entidade = $this->entidade->init($dataPost);
@@ -142,9 +148,9 @@ class BaseController extends Controller
 		return redirect($this->url);
 	}
 
-	public function getEdit($id, $outrosParametros = [])
+	public function getEdit($id, $outrosParametros = null)
 	{
-		$this->edit = $this->addOutrosParametros($this->edit, $outrosParametros);
+		$this->edit = $this->addOutrosParametros($this->edit, $outrosParametros ?? $this->outrosParametros);
 
 		$found = $this->model->find($id);
 		if (!$found)
@@ -155,9 +161,9 @@ class BaseController extends Controller
 		return view($this->edit["view"], $this->edit);
 	}
 
-	public function postEdit($id, $outrosParametros = [])
+	public function postEdit($id, $outrosParametros = null)
 	{
-		$this->edit = $this->addOutrosParametros($this->edit, $outrosParametros);
+		$this->edit = $this->addOutrosParametros($this->edit, $outrosParametros ?? $this->outrosParametros);
 
 		$found = $this->model->find($id);
 
@@ -217,10 +223,10 @@ class BaseController extends Controller
 	private function  addOutrosParametros($array, $outrosParametros)
 	{
 		if (!is_array($array))
-			throw new Exception("O parâmetro array deve ser um array");
+			return $array;
 
 		if (!is_array($outrosParametros))
-			throw new Exception("O parâmetro outrosParametros deve ser um array");
+			return $array;
 
 		if (count($outrosParametros)) {
 			foreach ($outrosParametros as $chave => $valor) {
