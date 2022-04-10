@@ -225,7 +225,7 @@ class BaseController extends Controller
 		if (!is_array($array))
 			return $array;
 
-		if (!is_array($outrosParametros))
+		if (!is_array($outrosParametros) || count($outrosParametros) == 0)
 			return $array;
 
 		if (count($outrosParametros)) {

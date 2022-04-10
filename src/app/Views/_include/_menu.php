@@ -80,7 +80,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('funcionarios'); ?>" class="nav-link">
+                                    <a href="<?= base_url('produtos'); ?>" class="nav-link">
                                         <i class="far nav-icon"></i>Listagem
                                     </a>
                                 </li>
@@ -191,6 +191,11 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?= base_url('tipos-funcoes'); ?>">
                                         <i class="far nav-icon"></i>Tipos de Funções
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?= base_url('provincias'); ?>">
+                                        <i class="far nav-icon"></i>Províncias
                                     </a>
                                 </li>
                                 <li class="nav-item">

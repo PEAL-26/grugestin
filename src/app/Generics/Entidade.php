@@ -22,8 +22,7 @@ abstract class Entidade extends Entity
 
     public function init($dados = null)
     {
-        $this->__construct($dados);
-        return $this;
+        return $this->__construct($dados);
     }
 
     public function existeProrpiedade($propriedade)

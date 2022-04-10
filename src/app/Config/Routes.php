@@ -25,6 +25,7 @@ $routes->set404Override();
 $routes->setAutoRoute(true);
 
 $routes->get('/', 'HomeController::index');
+$routes->get('perfil', 'HomeController::perfil');
 
 $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
     // Login/out
@@ -48,8 +49,10 @@ $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
 });
 
 
+Rotas::CRUD($routes, 'produtos', 'ProdutoController');
 Rotas::CRUD($routes, 'funcionarios', 'FuncionarioController');
-
+$routes->get('funcionarios/adicionar-varios', 'FuncionarioController::getCreateBulk');
+$routes->post('funcionarios/adicionar-varios', 'FuncionarioController::postCreateBulk');
 
 Rotas::CRUD($routes, 'estados-civis', 'EstadoCivilController', 'Auxiliares');
 Rotas::CRUD($routes, 'estados-funcionarios', 'EstadoFuncionarioController', 'Auxiliares');

@@ -23,4 +23,13 @@ class HomeController extends BaseController
 
         return view('home/index', $dados);
     }
+
+    public function perfil(){
+        $dados = [
+            'titulo' => 'Home',
+            'subtitulo' => 'Perfil',
+        ];
+
+        return view('home/perfil', $dados);
+    }
 }

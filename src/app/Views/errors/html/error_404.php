@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
 	<meta charset="utf-8">
-	<title>404 Page Not Found</title>
+	<title>404 Página não encontrada</title>
 
 	<style>
 		div.logo {
@@ -76,7 +76,7 @@
 			<?php if (! empty($message) && $message !== '(null)') : ?>
 				<?= nl2br(esc($message)) ?>
 			<?php else : ?>
-				Sorry! Cannot seem to find the page you were looking for.
+				Desculpe! Não consigo encontrar a página que você estava procurando.
 			<?php endif ?>
 		</p>
 	</div>

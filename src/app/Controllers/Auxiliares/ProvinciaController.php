@@ -21,7 +21,7 @@ class ProvinciaController extends BaseController
 			"Província",
 			new Provincia(),
 			new ProvinciaModel(),
-			"auxiliares/provinvicia",
+			"auxiliares/provincia",
 			[
 				'tabelaGenerica' => '',
 				'formularioGenerico' => $formulario
